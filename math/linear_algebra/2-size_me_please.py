@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Task 2"""
 
 def recursive_look(matrix, list_shape):
