@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Task 2"""
 
+
 def recursive_look(matrix, list_shape):
     """Auxiliar funtion"""
     if type(matrix) == list:
@@ -8,6 +9,7 @@ def recursive_look(matrix, list_shape):
         return recursive_look(matrix[0], list_shape)
     else:
         return list_shape
+
 
 def matrix_shape(matrix):
     """Funtion"""
