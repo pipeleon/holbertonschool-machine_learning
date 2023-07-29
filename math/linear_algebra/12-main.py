@@ -8,6 +8,7 @@ mat2 = np.array([[1, 2, 3], [4, 5, 6]])
 
 print(mat1)
 print(mat2)
+print(np_elementwise(mat1, mat2))
 add, sub, mul, div = np_elementwise(mat1, mat2)
 print("Add:\n", add, "\nSub:\n", sub, "\nMul:\n", mul, "\nDiv:\n", div)
 add, sub, mul, div = np_elementwise(mat1, 2)
