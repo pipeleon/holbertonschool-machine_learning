@@ -4,5 +4,5 @@ import numpy as np
 
 
 def np_cat(mat1, mat2, axis=0):
-    """Funtion tha return a matrix Transpose"""
+    """Funtion tha return concatenation of two matrices"""
     return np.concatenate((mat1, mat2), axis)
