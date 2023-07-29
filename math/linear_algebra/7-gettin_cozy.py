@@ -38,6 +38,7 @@ def cat_matrices2D(mat1, mat2, axis=0):
             return None
 
         for i in range(matrix_shape(mat1)[0]):
-            new_matrix[i].append(mat2[i][0])
+            for j in range(matrix_shape(mat1)[1]):
+                new_matrix[i].append(mat2[i][j])
 
     return new_matrix
