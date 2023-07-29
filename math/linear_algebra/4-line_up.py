@@ -22,6 +22,9 @@ def add_arrays(arr1, arr2):
     """Funtion to sum arrays"""
     new_array = []
 
+    if len(arr1) == 0 or len(arr2) == 0:
+        return new_array
+
     if matrix_shape(arr1) != matrix_shape(arr2):
         return None
 
