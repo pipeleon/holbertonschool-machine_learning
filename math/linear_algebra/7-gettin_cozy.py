@@ -22,7 +22,7 @@ def matrix_shape(matrix):
 
 
 def cat_matrices2D(mat1, mat2, axis=0):
-    """Funtion to sum 2D arrays"""
+    """Funtion to concat 2D arrays"""
     new_matrix = []
     for row in mat1:
         new_matrix.append(row.copy())

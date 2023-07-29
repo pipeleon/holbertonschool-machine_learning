@@ -21,11 +21,20 @@ def matrix_shape(matrix):
     return recursive_look(matrix, shape)
 
 
-def cat_arrays(arr1, arr2):
-    """Funtion to concat arrays"""
-    new_array = arr1.copy()
+def mat_mul(mat1, mat2):
+    """Funtion to sum 2D arrays"""
+    new_matrix = []
 
-    for i in range(matrix_shape(arr2)[0]):
-        new_array.append(arr2[i])
+    if matrix_shape(mat1)[1] != matrix_shape(mat2)[0]:
+        return None
 
-    return new_array
+    for i in range(matrix_shape(mat1)[0]):
+        temp = []
+        for j in range(matrix_shape(mat2)[1]):
+            temp2 = 0
+            for k in range(matrix_shape(mat2)[0]):
+                temp2 += mat1[i][k] * mat2[k][j]
+            temp.append(temp2)
+        new_matrix.append(temp)
+
+    return new_matrix
