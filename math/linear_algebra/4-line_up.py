@@ -24,7 +24,7 @@ def add_arrays(arr1, arr2):
 
     if matrix_shape(arr1) != matrix_shape(arr2):
         return None
-    
+
     for i in range(matrix_shape(arr1)[0]):
         new_array.append(arr1[i] + arr2[i])
 
