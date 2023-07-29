@@ -22,7 +22,7 @@ def matrix_shape(matrix):
 
 
 def mat_mul(mat1, mat2):
-    """Funtion to sum 2D arrays"""
+    """Funtion to multiplicate 2D arrays"""
     new_matrix = []
 
     if matrix_shape(mat1)[1] != matrix_shape(mat2)[0]:
