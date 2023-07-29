@@ -6,7 +6,7 @@ def recursive_look(matrix, list_shape):
     """Auxiliar recursive funtion"""
     if type(matrix) == list:
         list_shape.append(len(matrix))
-        if matrix[0]:
+        if len(matrix) > 0:
             return recursive_look(matrix[0], list_shape)
         else:
             return list_shape
@@ -25,6 +25,8 @@ def add_matrices2D(mat1, mat2):
     """Funtion to sum 2D arrays"""
     new_matrix = []
 
+    print(matrix_shape(mat1))
+    print(matrix_shape(mat2))
     if matrix_shape(mat1) != matrix_shape(mat2):
         return None
 
