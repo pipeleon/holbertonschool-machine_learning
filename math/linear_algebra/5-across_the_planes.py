@@ -25,8 +25,6 @@ def add_matrices2D(mat1, mat2):
     """Funtion to sum 2D arrays"""
     new_matrix = []
 
-    print(matrix_shape(mat1))
-    print(matrix_shape(mat2))
     if matrix_shape(mat1) != matrix_shape(mat2):
         return None
 
