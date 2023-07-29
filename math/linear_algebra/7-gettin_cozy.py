@@ -30,7 +30,7 @@ def cat_matrices2D(mat1, mat2, axis=0):
     if axis == 0:
         if matrix_shape(mat1)[1] != matrix_shape(mat2)[1]:
             return None
-        
+
         for i in range(len(mat2)):
             new_matrix.append(mat2[i])
     elif axis == 1:
