@@ -25,9 +25,6 @@ def cat_arrays(arr1, arr2):
     """Funtion to sum arrays"""
     new_array = arr1.copy()
 
-    if len(arr1) == 0 or len(arr2) == 0:
-        return new_array
-
     for i in range(matrix_shape(arr2)[0]):
         new_array.append(arr2[i])
 
