@@ -53,8 +53,8 @@ def add_matrices(mat1, mat2):
                 temp2 = []
                 for k in range(matrix_shape(mat1)[2]):
                     temp3 = []
-                    for l in range(matrix_shape(mat1)[3]):
-                        temp3.append(mat1[i][j][k][l] + mat2[i][j][k][l])
+                    for i2 in range(matrix_shape(mat1)[3]):
+                        temp3.append(mat1[i][j][k][i2] + mat2[i][j][k][i2])
                     temp2.append(temp3)
                 temp.append(temp2)
             new_matrix.append(temp)
