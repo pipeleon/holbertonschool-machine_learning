@@ -19,7 +19,8 @@ def np_slice(matrix, axes={}):
             elif len(sl5) == 3:
                 new_matrix = new_matrix[:, :, :, :, :, sl5[0]:sl5[1]:sl5[2]]
     if len(shape) >= 5:
-        new_matrix = matrix[:, :, :, :, :]
+        if len(new_matrix) == 0:
+            new_matrix = matrix[:, :, :, :, :]
         sl4 = axes.get(4)
         if sl4:
             if len(sl4) == 1:
