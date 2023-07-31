@@ -8,16 +8,26 @@ def np_slice(matrix, axes={}):
 
     new_matrix = []
 
+    if len(shape) >= 6:
+        new_matrix = matrix[:, :, :, :, :, :]
+        sl5 = axes.get(5)
+        if sl5:
+            if len(sl5) == 1:
+                new_matrix = new_matrix[:, :, :, :, :, :sl5[0]]
+            elif len(sl5) == 2:
+                new_matrix = new_matrix[:, :, :, :, :, sl5[0]:sl5[1]]
+            elif len(sl5) == 3:
+                new_matrix = new_matrix[:, :, :, :, :, sl5[0]:sl5[1]:sl5[2]]
     if len(shape) >= 5:
         new_matrix = matrix[:, :, :, :, :]
-        slice4 = axes.get(4)
-        if slice4:
-            if len(slice4) == 1:
-                new_matrix = new_matrix[:, :, :, :, :slice4[0]]
-            elif len(slice4) == 2:
-                new_matrix = new_matrix[:, :, :, :, slice4[0]:slice4[1]]
-            elif len(slice4) == 3:
-                new_matrix = new_matrix[:, :, :, :, slice4[0]:slice4[1]:slice4[2]]
+        sl4 = axes.get(4)
+        if sl4:
+            if len(sl4) == 1:
+                new_matrix = new_matrix[:, :, :, :, :sl4[0]]
+            elif len(sl4) == 2:
+                new_matrix = new_matrix[:, :, :, :, sl4[0]:sl4[1]]
+            elif len(sl4) == 3:
+                new_matrix = new_matrix[:, :, :, :, sl4[0]:sl4[1]:sl4[2]]
     if len(shape) >= 4:
         if len(new_matrix) == 0:
             new_matrix = matrix[:, :, :, :]
