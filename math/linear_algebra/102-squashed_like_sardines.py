@@ -14,7 +14,7 @@ def recursive_look(matrix, list_shape):
         return list_shape
 
 
-def matrix_shape(matrix):
+def m_sh(matrix):
     """Funtion to get the shape of a matrix"""
     shape = []
 
@@ -24,30 +24,30 @@ def matrix_shape(matrix):
 def cat_matrices(mat1, mat2, axis=0):
     """Funtion to concat arrays"""
 
-    if len(matrix_shape(mat1)) == 1 and len(matrix_shape(mat2)) == 1:
+    if len(m_sh(mat1)) == 1 and len(m_sh(mat2)) == 1:
         new_matrix = mat1.copy()
 
-        for i in range(matrix_shape(mat2)[0]):
+        for i in range(m_sh(mat2)[0]):
             new_matrix.append(mat2[i])
-    elif len(matrix_shape(mat1)) == 2 and len(matrix_shape(mat2)) == 2:
+    elif len(m_sh(mat1)) == 2 and len(m_sh(mat2)) == 2:
         new_matrix = []
         for row in mat1:
             new_matrix.append(row.copy())
 
         if axis == 0:
-            if matrix_shape(mat1)[1] != matrix_shape(mat2)[1]:
+            if m_sh(mat1)[1] != m_sh(mat2)[1]:
                 return None
 
             for i in range(len(mat2)):
                 new_matrix.append(mat2[i])
         elif axis == 1:
-            if matrix_shape(mat1)[0] != matrix_shape(mat2)[0]:
+            if m_sh(mat1)[0] != m_sh(mat2)[0]:
                 return None
 
-            for i in range(matrix_shape(mat2)[0]):
-                for j in range(matrix_shape(mat2)[1]):
+            for i in range(m_sh(mat2)[0]):
+                for j in range(m_sh(mat2)[1]):
                     new_matrix[i].append(mat2[i][j])
-    elif len(matrix_shape(mat1)) == 3 and len(matrix_shape(mat2)) == 3:
+    elif len(m_sh(mat1)) == 3 and len(m_sh(mat2)) == 3:
         new_matrix = []
         for ax0 in mat1:
             temp = []
@@ -56,27 +56,27 @@ def cat_matrices(mat1, mat2, axis=0):
             new_matrix.append(temp)
 
         if axis == 0:
-            if matrix_shape(mat1)[1] != matrix_shape(mat2)[1] and matrix_shape(mat1)[2] != matrix_shape(mat2)[2]:
+            if m_sh(mat1)[1] != m_sh(mat2)[1] and m_sh(mat1)[2] != m_sh(mat2)[2]:
                 return None
 
             for i in range(len(mat2)):
                 new_matrix.append(mat2[i])
         elif axis == 1:
-            if matrix_shape(mat1)[0] != matrix_shape(mat2)[0] and matrix_shape(mat1)[2] != matrix_shape(mat2)[2]:
+            if m_sh(mat1)[0] != m_sh(mat2)[0] and m_sh(mat1)[2] != m_sh(mat2)[2]:
                 return None
 
-            for i in range(matrix_shape(mat2)[0]):
-                for j in range(matrix_shape(mat2)[1]):
+            for i in range(m_sh(mat2)[0]):
+                for j in range(m_sh(mat2)[1]):
                     new_matrix[i].append(mat2[i][j])
         elif axis == 2:
-            if matrix_shape(mat1)[0] != matrix_shape(mat2)[0] and matrix_shape(mat1)[1] != matrix_shape(mat2)[1]:
+            if m_sh(mat1)[0] != m_sh(mat2)[0] and m_sh(mat1)[1] != m_sh(mat2)[1]:
                 return None
 
-            for i in range(matrix_shape(mat2)[0]):
-                for j in range(matrix_shape(mat2)[1]):
-                    for k in range(matrix_shape(mat2)[2]):
+            for i in range(m_sh(mat2)[0]):
+                for j in range(m_sh(mat2)[1]):
+                    for k in range(m_sh(mat2)[2]):
                         new_matrix[i][j].append(mat2[i][j][k])
-    elif len(matrix_shape(mat1)) == 4 and len(matrix_shape(mat2)) == 4:
+    elif len(m_sh(mat1)) == 4 and len(m_sh(mat2)) == 4:
         new_matrix = []
         for ax0 in mat1:
             temp = []
@@ -88,36 +88,36 @@ def cat_matrices(mat1, mat2, axis=0):
             new_matrix.append(temp)
 
         if axis == 0:
-            if matrix_shape(mat1)[1] != matrix_shape(mat2)[1] and matrix_shape(mat1)[2] != matrix_shape(mat2)[2] and matrix_shape(mat1)[3] != matrix_shape(mat2)[3]:
+            if m_sh(mat1)[1] != m_sh(mat2)[1] and m_sh(mat1)[2] != m_sh(mat2)[2] and m_sh(mat1)[3] != m_sh(mat2)[3]:
                 return None
 
             for i in range(len(mat2)):
                 new_matrix.append(mat2[i])
         elif axis == 1:
-            if matrix_shape(mat1)[0] != matrix_shape(mat2)[0] and matrix_shape(mat1)[2] != matrix_shape(mat2)[2] and matrix_shape(mat1)[3] != matrix_shape(mat2)[3]:
+            if m_sh(mat1)[0] != m_sh(mat2)[0] and m_sh(mat1)[2] != m_sh(mat2)[2] and m_sh(mat1)[3] != m_sh(mat2)[3]:
                 return None
 
-            for i in range(matrix_shape(mat2)[0]):
-                for j in range(matrix_shape(mat2)[1]):
+            for i in range(m_sh(mat2)[0]):
+                for j in range(m_sh(mat2)[1]):
                     new_matrix[i].append(mat2[i][j])
         elif axis == 2:
-            if matrix_shape(mat1)[0] != matrix_shape(mat2)[0] and matrix_shape(mat1)[1] != matrix_shape(mat2)[1] and matrix_shape(mat1)[3] != matrix_shape(mat2)[3]:
+            if m_sh(mat1)[0] != m_sh(mat2)[0] and m_sh(mat1)[1] != m_sh(mat2)[1] and m_sh(mat1)[3] != m_sh(mat2)[3]:
                 return None
 
-            for i in range(matrix_shape(mat2)[0]):
-                for j in range(matrix_shape(mat2)[1]):
-                    for k in range(matrix_shape(mat2)[2]):
+            for i in range(m_sh(mat2)[0]):
+                for j in range(m_sh(mat2)[1]):
+                    for k in range(m_sh(mat2)[2]):
                         new_matrix[i][j].append(mat2[i][j][k])
         elif axis == 3:
-            if matrix_shape(mat1)[0] != matrix_shape(mat2)[0] and matrix_shape(mat1)[1] != matrix_shape(mat2)[1] and matrix_shape(mat1)[2] != matrix_shape(mat2)[2]:
+            if m_sh(mat1)[0] != m_sh(mat2)[0] and m_sh(mat1)[1] != m_sh(mat2)[1] and m_sh(mat1)[2] != m_sh(mat2)[2]:
                 return None
 
-            for i in range(matrix_shape(mat2)[0]):
-                for j in range(matrix_shape(mat2)[1]):
-                    for k in range(matrix_shape(mat2)[2]):
-                        for i2 in range(matrix_shape(mat2)[3]):
+            for i in range(m_sh(mat2)[0]):
+                for j in range(m_sh(mat2)[1]):
+                    for k in range(m_sh(mat2)[2]):
+                        for i2 in range(m_sh(mat2)[3]):
                             new_matrix[i][j][k].append(mat2[i][j][k][i2])
     else:
         return None
-    
+
     return new_matrix
