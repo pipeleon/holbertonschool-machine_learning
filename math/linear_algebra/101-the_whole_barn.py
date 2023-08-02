@@ -26,11 +26,9 @@ def add_matrices(mat1, mat2):
     new_matrix = []
 
     if matrix_shape(mat1) != matrix_shape(mat2):
-        return None
-    
-    return mat1+mat2
+        return None  
 
-    """ if len(matrix_shape(mat1)) == 1:
+    if len(matrix_shape(mat1)) == 1:
         for i in range(matrix_shape(mat1)[0]):
             new_matrix.append(mat1[i] + mat2[i])
     elif len(matrix_shape(mat1)) == 2:
@@ -59,6 +57,6 @@ def add_matrices(mat1, mat2):
                         temp3.append(mat1[i][j][k][i2] + mat2[i][j][k][i2])
                     temp2.append(temp3)
                 temp.append(temp2)
-            new_matrix.append(temp) """
+            new_matrix.append(temp)
 
     return new_matrix
