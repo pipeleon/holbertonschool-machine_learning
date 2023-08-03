@@ -24,9 +24,6 @@ def m_sh(matrix):
 def cat_matrices(mat1, mat2, axis=0):
     """Funtion to concat arrays"""
 
-    if m_sh(mat1) != m_sh(mat2):
-        return None
-
     if len(m_sh(mat1)) == 1 and len(m_sh(mat2)) == 1:
         new_matrix = mat1.copy()
 
