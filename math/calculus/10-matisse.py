@@ -1,11 +1,19 @@
 #!/usr/bin/env python3
-"""Task 9"""
+"""Task 10"""
 
 
-def summation_i_squared(n):
-    """Function that calculates the sume of n sqare numbers"""
+def poly_derivative(poly):
+    """Function that calculates the derivative of a polynomial"""
 
-    if type(n) is not int:
+    if type(poly) != list:
         return None
-    else:
-        return n**3/3 + n**2/2 + n/6
+
+    if len(poly) == 1:
+        return [0]
+
+    dev_poly = []
+
+    for i in range(len(poly) - 1):
+        dev_poly.append(poly[i + 1] * (i + 1))
+
+    return dev_poly
