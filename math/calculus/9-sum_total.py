@@ -7,9 +7,5 @@ def summation_i_squared(n, sum=0):
 
     if type(n) is not int:
         return None
-
-    if n == 0:
-        return sum
     else:
-        sum += n * n
-        return summation_i_squared(n - 1, sum)
+        return int(n**3/3 + n**2/2 + n/6)
