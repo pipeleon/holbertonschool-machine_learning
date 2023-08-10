@@ -45,6 +45,15 @@ class Exponential():
 
         e = 2.7182818285
         k = int(x)
-        fact = 1
 
         return e**(-self.lambtha * x) * self.lambtha
+
+    def cdf(self, x):
+        """Calculates the value of the CDF for a given time period"""
+        if x < 0:
+            return 0
+
+        e = 2.7182818285
+        k = int(x)
+
+        return 1 - e**(-self.lambtha * x)
