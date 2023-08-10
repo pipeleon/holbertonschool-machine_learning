@@ -37,3 +37,14 @@ class Poisson():
         if len(data) < 2:
             raise ValueError("data must contain multiple values")
         self.__data = data
+    
+    def pmf(self, k):
+        """Calculates the value of the PMF for a given number of “successes”"""
+        e = 2.7182818285
+        k = int(k)
+        fact = 1
+ 
+        for i in range(1, k+1):
+            fact = fact * i
+
+        return e**(-self.lambtha) * self.lambtha**k / fact
