@@ -10,7 +10,7 @@ class Exponential():
             self.lambtha = lambtha
         else:
             self.data = data
-            self.lambtha = sum(data) / len(data)
+            self.lambtha = len(data) / sum(data)
 
     @property
     def lambtha(self):
