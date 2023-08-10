@@ -51,3 +51,16 @@ class Poisson():
             fact = fact * i
 
         return e**(-self.lambtha) * self.lambtha**k / fact
+
+    def cdf(self, k):
+        """Calculates the value of the CDF for a given number of “successes”"""
+        if k < 0:
+            return 0
+
+        k = int(k)
+        acumulative = 0
+
+        for i in range(0, k+1):
+            acumulative += self.pmf(i)
+
+        return acumulative
