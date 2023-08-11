@@ -19,6 +19,7 @@ class Binomial():
             p_temp = 1 - variance / mean
             self.n = round(sum(map(lambda x: x / p_temp, data)) / len(data))
             self.p = sum(map(lambda x: x / self.n, data)) / len(data)
+
     @property
     def n(self):
         """n property"""
@@ -53,7 +54,7 @@ class Binomial():
     @p.setter
     def p(self, p):
         """Setter p"""
-        if p < 0 or p > 1:
+        if p <= 0 or p >= 1:
             raise ValueError("p must be greater than 0 and less than 1")
         self.__p = p
 
