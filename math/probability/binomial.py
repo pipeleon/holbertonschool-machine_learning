@@ -58,13 +58,13 @@ class Binomial():
             raise ValueError("p must be greater than 0 and less than 1")
         self.__p = p
 
-    def factorial(self, x):
-        """Funtion for factorial"""
+    def fc(self, x):
+        """Funtion for fc"""
         fact = 1
 
         for i in range(1, x+1):
             fact = fact * i
-        
+
         return fact
 
     def pmf(self, k):
@@ -74,6 +74,6 @@ class Binomial():
 
         k = int(k)
         pi = 3.1415926536
-        div = (self.factorial(k) * self.factorial(self.n - k))
+        div = (self.fc(k) * self.fc(self.n - k))
 
-        return self.factorial(self.n) * self.p**k * (1 - self.p)**(self.n - k) / div
+        return self.fc(self.n) * self.p**k * (1 - self.p)**(self.n - k) / div
