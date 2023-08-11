@@ -58,28 +58,22 @@ class Binomial():
             raise ValueError("p must be greater than 0 and less than 1")
         self.__p = p
 
-    def z_score(self, x):
-        """Calculates the z-score of a given x-value"""
-        return (x - self.mean) / self.stddev
+    def factorial(self, x):
+        """Funtion for factorial"""
+        fact = 1
 
-    def x_value(self, z):
-        """"Calculates the x-value of a given z-score"""
-        return z * self.stddev + self.mean
+        for i in range(1, x+1):
+            fact = fact * i
+        
+        return fact
 
-    def pdf(self, x):
-        """Calculates the value of the PDF for a given x-value"""
+    def pmf(self, k):
+        """Calculates the value of the PMF for a given number of “successes”"""
+        if k < 0:
+            return 0
+
+        k = int(k)
         pi = 3.1415926536
-        e = 2.7182818285
-        div = (2 * pi * self.stddev**2)**(1 / 2)
+        div = (self.factorial(k) * self.factorial(self.n - k))
 
-        return (e**((-(x - self.mean)**2)/(2 * self.stddev**2))) / div
-
-    def erf(self, x):
-        """error function"""
-        pi = 3.1415926536
-
-        return (x - x**3/3 + x**5/10 - x**7/42 + x**9/216) * 2 / pi**(1/2)
-
-    def cdf(self, x):
-        """Calculates the value of the CDF for a given x-value"""
-        return (1 + self.erf((x - self.mean) / (self.stddev * 2**(1/2)))) / 2
+        return self.factorial(self.n) * self.p**k * (1 - self.p)**(self.n - k) / div
