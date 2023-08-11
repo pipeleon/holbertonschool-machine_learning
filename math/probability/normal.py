@@ -65,5 +65,6 @@ class Normal():
         """Calculates the value of the PDF for a given x-value"""
         pi = 3.1415926536
         e = 2.7182818285
+        div = (2 * pi * self.stddev**2)**(1 / 2)
 
-        return (e**((-(x - self.mean)**2)/(2 * self.stddev**2))) / (2 * pi * self.stddev**2)**(1 / 2)
+        return (e**((-(x - self.mean)**2)/(2 * self.stddev**2))) / div
