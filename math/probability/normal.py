@@ -68,3 +68,13 @@ class Normal():
         div = (2 * pi * self.stddev**2)**(1 / 2)
 
         return (e**((-(x - self.mean)**2)/(2 * self.stddev**2))) / div
+
+    def erf(self, x):
+        """error function"""
+        pi = 3.1415926536
+
+        return (x - x**3/3 + x**5/10 - x**7/42 + x**9/216) * 2 / pi**(1/2)
+
+    def cdf(self, x):
+        """Calculates the value of the CDF for a given x-value"""
+        return (1 + self.erf((x - self.mean) / (self.stddev * 2**(1/2)))) / 2
