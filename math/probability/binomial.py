@@ -77,3 +77,16 @@ class Binomial():
         div = (self.fc(k) * self.fc(self.n - k))
 
         return self.fc(self.n) * self.p**k * (1 - self.p)**(self.n - k) / div
+
+    def cdf(self, k):
+        """Calculates the value of the CDF for a given number of “successes”"""
+        if k < 0:
+            return 0
+
+        k = int(k)
+        acumulative = 0
+
+        for i in range(0, k+1):
+            acumulative += self.pmf(i)
+
+        return acumulative
