@@ -52,3 +52,9 @@ class Normal():
         if stddev <= 0:
             raise ValueError("stddev must be a positive value")
         self.__stddev = stddev
+
+    def z_score(self, x):
+        return (x - self.mean) / self.stddev
+
+    def x_value(self, z):
+        return z * self.stddev + self.mean
