@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Task 2 Classification"""
+"""Task 3 Classification"""
 import numpy as np
 
 

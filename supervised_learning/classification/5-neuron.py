@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Task 4 Classification"""
+"""Task 5 Classification"""
 import numpy as np
 
 
@@ -49,3 +49,14 @@ class Neuron():
         prediction = np.where(A < 0.5, 0, 1)
 
         return prediction, cost
+
+    def gradient_descent(self, X, Y, A, alpha=0.05):
+        """Calculates one pass of gradient descent on the neuron"""
+        m = Y.shape[1]
+        dz = A - Y
+
+        dw = (1 / m) * np.matmul(X, dz.T)
+        self.__W -= alpha * dw
+
+        db = (1 / m) * np.sum(dz)
+        self.__b -= alpha * db
