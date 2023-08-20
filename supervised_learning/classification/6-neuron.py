@@ -56,9 +56,7 @@ class Neuron():
         dz = A - Y
 
         dw = (1 / m) * np.matmul(X, dz.T)
-        new_W = self.__W - alpha * dw
-        self.__W = new_W
+        self.__W -= alpha * dw
 
         db = (1 / m) * np.sum(dz)
-        new_b = self.__b - alpha * db
-        self.__b = new_b
+        self.__b -= alpha * db
