@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Task 5 Classification"""
+"""Task 6 Classification"""
 import numpy as np
 
 
@@ -56,7 +56,26 @@ class Neuron():
         dz = A - Y
 
         dw = (1 / m) * np.matmul(X, dz.T)
-        self.__W -= alpha * dw
+        new_W = self.__W - alpha * dw.T
+        self.__W = new_W
 
         db = (1 / m) * np.sum(dz)
-        self.__b -= alpha * db
+        new_b = self.__b - alpha * db
+        self.__b = new_b
+
+    def train(self, X, Y, iterations=5000, alpha=0.05):
+        """Trains the neuron"""
+        if type(iterations) is not int:
+            raise TypeError("iterations must be an integer")
+        if iterations  < 1:
+            raise ValueError("iterations must be a positive integer")
+        if type(alpha) is not float:
+            raise TypeError("alpha must be a float")
+        if alpha  < 0:
+            raise ValueError("alpha must be positive")
+    
+        for i in range(iterations):
+            A = self.forward_prop(X)
+            self.gradient_descent(X, Y, A, alpha)
+
+        return self.evaluate(X, Y)
