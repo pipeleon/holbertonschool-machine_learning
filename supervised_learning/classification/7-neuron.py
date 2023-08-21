@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Task 6 Classification"""
+"""Task 7 Classification"""
 import numpy as np
 import matplotlib.pyplot as plt
 
