@@ -85,8 +85,7 @@ class NeuralNetwork():
         new_b2 = self.__b2 - alpha * db2.T
         self.__b2 = new_b2
 
-        z1 = np.matmul(self.__W1, X) + self.__b1
-        dg1 = 1/(1 + np.exp(-z1)) * (1 - 1/(1 + np.exp(-z1)))
+        dg1 = A1 * (1 - A1)
         dz1 = np.matmul(self.__W2.T, dz2) * dg1
 
         dw1 = (1 / m) * np.matmul(dz1, X.T)
