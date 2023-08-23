@@ -19,9 +19,11 @@ class DeepNeuralNetwork ():
             if layers[i] < 1:
                 raise TypeError("layers must be a list of positive integers")
             if i == 0:
-                tmp_w['W' + str(i + 1)] = np.random.normal(0, np.sqrt(2/nx), (layers[i], nx))
+                st = np.sqrt(2/nx)
+                tmp_w['W' + str(i + 1)] = np.random.normal(0, st, (layers[i], nx))
             else:
-                tmp_w['W' + str(i + 1)] = np.random.normal(0, np.sqrt(2/layers[i - 1]), (layers[i], layers[i - 1]))
+                st = np.sqrt(2/layers[i - 1])
+                tmp_w['W' + str(i + 1)] = np.random.normal(0, st, (layers[i], layers[i-1]))
             tmp_w['b' + str(i + 1)] = np.zeros((layers[i], 1))
 
         self.L = len(layers)
