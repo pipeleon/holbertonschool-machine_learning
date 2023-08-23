@@ -24,7 +24,8 @@ class DeepNeuralNetwork ():
                 tmp_w['W' + str(i+1)] = np.random.normal(0, st, (ly[i], nx))
             else:
                 st = np.sqrt(2/layers[i - 1])
-                tmp_w['W' + str(i+1)] = np.random.normal(0, st, (ly[i], ly[i-1]))
+                key = 'W' + str(i+1)
+                tmp_w[key] = np.random.normal(0, st, (ly[i], ly[i-1]))
             tmp_w['b' + str(i+1)] = np.zeros((layers[i], 1))
 
         self.L = len(layers)
