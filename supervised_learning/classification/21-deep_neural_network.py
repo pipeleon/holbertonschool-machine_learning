@@ -80,14 +80,14 @@ class DeepNeuralNetwork ():
         """Calculates one pass of gradient descent on the neural network"""
         m = Y.shape[1]
         limit = self.__L
-        A = cache['A' + str(limit)]
         w_aux = []
 
         while limit > 0:
+            A = cache['A' + str(limit)]
             if limit == self.__L:
                 dz = A - Y
-            else:
-                dz = np.matmul(w_aux.T, dz) * cache['A' + str(limit)] * (1 - cache['A' + str(limit)])
+            else:                
+                dz = np.matmul(w_aux.T, dz) * A * (1 - A)
             dw = (1 / m) * np.matmul(dz, cache['A' + str(limit - 1)].T)
             db = (1 / m) * np.sum(dz, axis=1, keepdims=True)
 
