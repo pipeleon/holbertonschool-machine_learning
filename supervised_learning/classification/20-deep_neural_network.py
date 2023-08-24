@@ -69,7 +69,7 @@ class DeepNeuralNetwork ():
 
     def evaluate(self, X, Y):
         """Evaluates the neural network's predictions"""
-        _, A = self.forward_prop(X)
+        A, _ = self.forward_prop(X)
         cost = self.cost(Y, A)
 
         prediction = np.where(A < 0.5, 0, 1)
