@@ -83,7 +83,6 @@ class DeepNeuralNetwork ():
         A = cache['A' + str(limit)]
         w_aux = []
 
-        print("Debugging:")
         while limit > 0:
             if limit == self.__L:
                 dz = A - Y
@@ -92,7 +91,6 @@ class DeepNeuralNetwork ():
             dw = (1 / m) * np.matmul(dz, cache['A' + str(limit - 1)].T)
             db = (1 / m) * np.sum(dz, axis=1, keepdims=True)
 
-            print("W" + str(limit) + ":")
             w_aux = self.__weights["W" + str(limit)].copy()
             self.__weights["W" + str(limit)] -= alpha * dw
             self.__weights["b" + str(limit)] -= alpha * db
