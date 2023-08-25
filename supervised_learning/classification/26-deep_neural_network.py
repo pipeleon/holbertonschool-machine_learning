@@ -98,7 +98,8 @@ class DeepNeuralNetwork ():
             self.__weights["b" + str(limit)] -= alpha * db
             limit -= 1
 
-    def train(self, X, Y, iterations=5000, alpha=0.05, verbose=True, graph=True, step=100):
+    def train(self, X, Y, iterations=5000, alpha=0.05,
+              verbose=True, graph=True, step=100):
         """Trains the neural network"""
         if type(iterations) is not int:
             raise TypeError("iterations must be an integer")
@@ -125,7 +126,7 @@ class DeepNeuralNetwork ():
             A, cache = self.forward_prop(X)
 
             cost = self.cost(Y, A)
-            if (verbose or graph) and i % step == 0:                
+            if (verbose or graph) and i % step == 0:
                 if verbose:
                     print('Cost after ' + str(i) + ' iterations: ' + str(cost))
                 if graph:
@@ -134,7 +135,8 @@ class DeepNeuralNetwork ():
             self.gradient_descent(Y, cache, alpha)
 
         if verbose:
-            print('Cost after ' + str(iterations) + ' iterations: ' + str(cost))
+            i = iterations
+            print('Cost after ' + str(i) + ' iterations: ' + str(cost))
         if graph:
             y[-1] = cost
             plt.plot(x, y)
