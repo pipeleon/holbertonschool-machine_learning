@@ -13,7 +13,7 @@ def one_hot_decode(one_hot):
 
     for i in range(lenY):
         for j in range(classes):
-            if one_hot[j][i] == 1:
+            if one_hot[j][i]:
                 matrix[i] = j
 
     return matrix.astype(int)
