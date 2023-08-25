@@ -5,16 +5,15 @@ import numpy as np
 
 def one_hot_decode(one_hot):
     """Converts a one-hot matrix into a vector of labels"""
-    if type(one_hot) is not np.ndarray or len(one_hot.shape) < 2:
+    if type(one_hot) is not np.ndarray or len(one_hot.shape) != 2:
         return None
-    print(one_hot.shape)
-    """ classes = one_hot.shape[0]
+    classes = one_hot.shape[0]
     lenY = one_hot.shape[1]
     matrix = np.zeros((lenY, ))
 
     for i in range(lenY):
         for j in range(classes):
             if one_hot[j][i]:
-                matrix[i] = j """
+                matrix[i] = j
 
-    return np.argmax(one_hot, axis=0)
+    return matrix.astype(int)
