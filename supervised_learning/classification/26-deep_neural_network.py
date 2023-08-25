@@ -155,7 +155,10 @@ class DeepNeuralNetwork ():
 
     def load(filename):
         """Loads a pickled DeepNeuralNetwork object"""
-        dbfile = open(filename, 'rb')
+        try:
+            dbfile = open(filename, 'rb')
+        except FileNotFoundError:
+            return None
 
         if not dbfile:
             return None
