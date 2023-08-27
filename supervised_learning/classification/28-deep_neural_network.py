@@ -89,9 +89,10 @@ class DeepNeuralNetwork ():
         A, _ = self.forward_prop(X)
         cost = self.cost(Y, A)
 
-        prediction = np.where(A < 0.5, 0, 1)
+        mA = np.amax(A, axis=0)
+        prediction = np.where(A < mA, 0, 1)
 
-        return A, cost
+        return prediction, cost
 
     def gradient_descent(self, Y, cache, alpha=0.05):
         """Calculates one pass of gradient descent on the neural network"""
