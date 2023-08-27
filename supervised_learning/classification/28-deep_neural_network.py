@@ -91,7 +91,7 @@ class DeepNeuralNetwork ():
 
         prediction = np.where(A < 0.5, 0, 1)
 
-        return prediction, cost
+        return A, cost
 
     def gradient_descent(self, Y, cache, alpha=0.05):
         """Calculates one pass of gradient descent on the neural network"""
@@ -161,7 +161,7 @@ class DeepNeuralNetwork ():
             plt.suptitle("Training Cost")
             plt.xlabel('iteration')
             plt.ylabel('cost')
-            plt.savefig("23-cost-train1.png")
+            plt.savefig("28-cost-train1.png")
 
         return self.evaluate(X, Y)
 
