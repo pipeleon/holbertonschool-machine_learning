@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Task 0 Tensorflow"""
-import numpy as np
 import tensorflow.compat.v1 as tf
 
 
