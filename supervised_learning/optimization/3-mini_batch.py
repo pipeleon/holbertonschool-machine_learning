@@ -21,6 +21,9 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
         train_op = tf.get_collection("train_op")[0]
 
         m = X_train.shape[0]
+        batches = m // batch_size
+        if m % batch_size != 0:
+            batches += 1
 
         for i in range(epochs + 1):
             train_cost, train_accuracy = sess.run(
@@ -39,7 +42,7 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
             X_shuffled, Y_shuffled = shuffle_data(X_train, Y_train)
 
             if i < epochs:
-                for j in range(m // batch_size):
+                for j in range(batches):
                     end = (j+1)*batch_size if (j+1)*batch_size < m else m
                     X_batch = X_shuffled[(j*batch_size):end]
                     Y_batch = Y_shuffled[(j*batch_size):end]
