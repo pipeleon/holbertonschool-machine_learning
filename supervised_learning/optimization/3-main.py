@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import numpy as np
 import tensorflow.compat.v1 as tf
 tf.disable_eager_execution()
 train_mini_batch = __import__('3-mini_batch').train_mini_batch
