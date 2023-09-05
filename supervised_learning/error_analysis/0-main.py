@@ -7,10 +7,8 @@ if __name__ == '__main__':
     lib = np.load('labels_logits.npz')
     labels = lib['labels']
     logits = lib['logits']
-    print(labels)
-    print(logits)
 
-    """ np.set_printoptions(suppress=True)
+    np.set_printoptions(suppress=True)
     confusion = create_confusion_matrix(labels, logits)
     print(confusion)
-    np.savez_compressed('confusion.npz', confusion=confusion) """
+    np.savez_compressed('confusion.npz', confusion=confusion)
