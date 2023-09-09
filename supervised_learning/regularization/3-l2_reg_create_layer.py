@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Task 2 Regularization"""
+"""Task 3 Regularization"""
 import tensorflow.compat.v1 as tf
 
 
