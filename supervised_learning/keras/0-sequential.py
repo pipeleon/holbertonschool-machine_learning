@@ -13,10 +13,10 @@ def build_model(nx, layers, activations, lambtha, keep_prob):
                                      input_shape=(nx, ),
                                      kernel_regularizer=regularizer))
         else:
-            model.add(K.layers.Dense(layers[i], activation=activations[i],
+            model.add(K.layers.Dense(layers[i], activations[i],
                                      kernel_regularizer=regularizer))
         if i != len(layers) - 1:
-            model.add(K.layers.Dropout(keep_prob))
+            model.add(K.layers.Dropout(1 - keep_prob))
 
     model.compile(loss='binary_crossentropy', optimizer='adam',
                   metrics=['accuracy'])
