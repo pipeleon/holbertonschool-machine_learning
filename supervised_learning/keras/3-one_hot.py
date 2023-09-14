@@ -5,7 +5,6 @@ import tensorflow.keras as K
 
 def one_hot(labels, classes=None):
     """Converts a label vector into a one-hot matrix"""
-    classes = labels.shape[0]
     matrix = K.utils.to_categorical(labels, classes)
 
     return matrix
