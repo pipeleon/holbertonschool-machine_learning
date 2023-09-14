@@ -6,7 +6,7 @@ import tensorflow.keras as K
 def optimize_model(network, alpha, beta1, beta2):
     """Builds a neural network with the Keras library"""
     network.compile(optimizer=K.optimizers.Adam(alpha, beta1, beta2),
-                    loss=K.losses.CategoricalCrossentropy(),
+                    loss="categorical_crossentropy",
                     metrics=['accuracy'])
 
     return None
