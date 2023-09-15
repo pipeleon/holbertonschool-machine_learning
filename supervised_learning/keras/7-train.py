@@ -9,7 +9,7 @@ def train_model(network, data, labels, batch_size, epochs,
                 alpha=0.1, decay_rate=1, verbose=True, shuffle=False):
     """Trains a model using mini-batch gradient descent:"""
     def scheduler(epoch, lr):
-        return lr / (1 + decay_rate * epoch)
+        return alpha / (1 + decay_rate * epoch)
 
     return network.fit(data, labels, batch_size,
                        epochs, verbose, shuffle=shuffle,
