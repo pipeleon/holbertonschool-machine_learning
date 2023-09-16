@@ -5,11 +5,12 @@ import tensorflow.keras as K
 
 def save_model(network, filename):
     """Saves an entire model"""
-    K.saving.save_model(network, filename)
+    """ K.saving.save_model(network, filename) """
+    network.save(filename)
 
     return None
 
 
 def load_model(filename):
     """Loads an entire model"""
-    return K.saving.load_model(filename)
+    return K.models.load_model(filename)
