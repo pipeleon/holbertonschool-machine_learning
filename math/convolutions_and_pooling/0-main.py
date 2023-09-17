@@ -15,5 +15,5 @@ kernel = np.random.randint(0, 10, (fh, fw))
 print(images.shape)
 print(kernel.shape)
 conv_ims = convolve_grayscale_valid(images, kernel)
-""" print(conv_ims)
-print(conv_ims.shape) """
+print(conv_ims)
+print(conv_ims.shape)
