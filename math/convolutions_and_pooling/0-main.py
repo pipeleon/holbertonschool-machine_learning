@@ -1,22 +1,19 @@
 #!/usr/bin/env python3
 
-import matplotlib.pyplot as plt
+#!/usr/bin/env python3
+
 import numpy as np
 convolve_grayscale_valid = __import__('0-convolve_grayscale_valid').convolve_grayscale_valid
 
+np.random.seed(0)
+m = np.random.randint(1000, 2000)
+h, w = np.random.randint(100, 200, 2).tolist()
+fh, fw = np.random.randint(3, 10, 2).tolist()
 
-if __name__ == '__main__':
-
-    dataset = np.load('../../supervised_learning/data/MNIST.npz')
-    images = dataset['X_train']
-    print(images.shape)
-    kernel = np.array([[1 ,0, -1], [1, 0, -1], [1, 0, -1]])
-    """ test = np.array([[2 ,0, -2], [3, 0, -3], [0, 0, -1]])
-    print(np.sum(kernel * test)) """
-    images_conv = convolve_grayscale_valid(images, kernel)
-    print(images_conv.shape)
-
-    plt.imshow(images[0], cmap='gray')
-    plt.savefig("0-normal.png")
-    plt.imshow(images_conv[0], cmap='gray')
-    plt.savefig("0-alter.png")
+images = np.random.randint(0, 256, (m, h, w))
+kernel = np.random.randint(0, 10, (fh, fw))
+print(images.shape)
+print(kernel.shape)
+conv_ims = convolve_grayscale_valid(images, kernel)
+""" print(conv_ims)
+print(conv_ims.shape) """
