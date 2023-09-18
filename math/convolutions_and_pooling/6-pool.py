@@ -19,7 +19,7 @@ def pool(images, kernel_shape, stride, mode='max'):
     for j in range(new_image.shape[1]):
         for k in range(new_image.shape[2]):
             if mode == "max":
-                new_value = np.argmax(
+                new_value = np.max(
                     images[:, j*s1:j*s1+k1, k*s2:k*s2+k2, :], axis=(1, 2))
             else:
                 new_value = np.average(
