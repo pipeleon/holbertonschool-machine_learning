@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import numpy as np
+""" import numpy as np
 conv_backward = __import__('2-conv_backward').conv_backward
 
 if __name__ == "__main__":
@@ -15,8 +15,8 @@ if __name__ == "__main__":
 
     dZ = np.random.randn(10, h - 2, w - 2, 2)
     print(conv_backward(dZ, X_train_c, W, b, padding="valid"))
-
-""" import numpy as np
+ """
+import numpy as np
 conv_backward = __import__('2-conv_backward').conv_backward
 
 np.random.seed(5)
@@ -35,12 +35,12 @@ print("X: {}".format(X.shape))
 print("W: {}".format(W.shape))
 print("b: {}".format(b.shape))
 print("dZ: {}".format(dZ.shape))
-print("sh, sw: {}, {}".format(sh, sw))
+print("sh, sw: {}, {}")
 dA, dW, db = conv_backward(dZ, X, W, b, padding="same", stride=(sh, sw))
 np.set_printoptions(threshold=np.inf)
-print(dA)print(dW)print(db)
+print(dA[0])
 print(dA.shape)
-
+print(dW)
 print(dW.shape)
-
-print(db.shape) """
+print(db)
+print(db.shape)

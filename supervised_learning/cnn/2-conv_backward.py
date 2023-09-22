@@ -15,12 +15,8 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
 
     if type(padding) is str:
         if padding == 'same':
-            p1 = int((A_prev.shape[1] * (s1 - 1) + k1 - s1) / 2)
-            p2 = int((A_prev.shape[2] * (s2 - 1) + k2 - s2) / 2)
-            if k1 % 2 == 0:
-                p1 += 1
-            if k2 % 2 == 0:
-                p2 += 1
+            p1 = int((A_prev.shape[1] * (s1 - 1) + k1 - s1) // 2) + 1
+            p2 = int((A_prev.shape[2] * (s2 - 1) + k2 - s2) // 2) + 1
         else:
             p1 = 0
             p2 = 0
@@ -30,6 +26,11 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
 
     new_dimX = int(1 + (A_prev.shape[1] - k1 + 2 * p1) / s1)
     new_dimY = int(1 + (A_prev.shape[2] - k2 + 2 * p2) / s2)
+
+    print(new_dimX)
+    print(new_dimY)
+    print(A_prev.shape[1])
+    print(A_prev.shape[2])
 
     A_prev = np.pad(
             A_prev, ((0, 0), (p1, p1), (p2, p2), (0, 0)), mode="constant")
