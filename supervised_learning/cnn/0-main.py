@@ -17,11 +17,11 @@ if __name__ == "__main__":
     def relu(Z):
         return np.maximum(Z, 0)
 
-    plt.imshow(X_train[0])
-    plt.savefig("0-normal.png")
+    """ plt.imshow(X_train[0])
+    plt.savefig("0-normal.png") """
     A = conv_forward(X_train_c, W, b, relu, padding='valid')
-    print(A.shape)
+    """ print(A.shape)
     plt.imshow(A[0, :, :, 0])
     plt.savefig("0-alter1.png")
     plt.imshow(A[0, :, :, 1])
-    plt.savefig("0-alter2.png")
+    plt.savefig("0-alter2.png") """
