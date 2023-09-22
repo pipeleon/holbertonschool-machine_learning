@@ -31,6 +31,9 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
     new_dimX = int(1 + (A_prev.shape[1] - k1 + 2 * p1) / s1)
     new_dimY = int(1 + (A_prev.shape[2] - k2 + 2 * p2) / s2)
 
+    print(new_dimX)
+    print(new_dimY)
+
     A_prev = np.pad(
             A_prev, ((0, 0), (p1, p1), (p2, p2), (0, 0)), mode="constant")
 
@@ -51,5 +54,7 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
                     dW[:, :, :, i] += A_prev[set,
                                              j*s1:j*s1+k1,
                                              k*s2:k*s2+k2, :] * Z
+    
+    dA_prev = dA_prev[:, p1:-p1, p2:-p2, :]
 
     return dA_prev, dW, db
