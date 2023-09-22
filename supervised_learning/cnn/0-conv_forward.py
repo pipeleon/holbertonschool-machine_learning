@@ -38,6 +38,13 @@ def conv_forward(A_prev, W, b, activation, padding="same", stride=(1, 1)):
     for j in range(Z.shape[1]):
         for k in range(Z.shape[2]):
             for i in range(W.shape[3]):
+                print(A_prev.shape)
+                print(W.shape)
+                print(Z.shape)
+                print("************")
+                print(A_prev[:, j*s1:j*s1+k1, k*s2:k*s2+k2, :].shape)
+                print(W[:, :, :, i].shape)
+                print(Z[:, j, k, i].shape)
                 new_value = np.sum(
                     A_prev[:, j*s1:j*s1+k1, k*s2:k*s2+k2, :] *
                     W[:, :, :, i], axis=(1, 2, 3))
