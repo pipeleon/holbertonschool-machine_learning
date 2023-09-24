@@ -69,4 +69,6 @@ def lenet5(x, y):
     optimizer = tf.train.AdamOptimizer()
     train = optimizer.minimize(losses)
 
-    return output, train, losses, accuracy
+    out = tf.nn.softmax(output)
+
+    return out, train, losses, accuracy
