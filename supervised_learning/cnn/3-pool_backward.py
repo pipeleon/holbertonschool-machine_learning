@@ -16,8 +16,15 @@ def pool_backward(dA, A_prev, kernel_shape, stride=(1, 1), mode='max'):
     for set in range(m):
         for j in range(dA.shape[1]):
             for k in range(dA.shape[2]):
-                if mode != "max":
-                    dA_prev[set, j*s1:j*s1+k1, k*s2:k*s2+k2, :] += np.ones((k1, k2, dA.shape[3])) * dA[set, j, k, :] / (k1 * k2)
-                
+                for c in range(dA.shape[3]):
+                    if mode == "max":
+                        a_slice = A_prev[set, k*s2:k*s2+k2, j*s1:j*s1+k1, c]
+                        mask = (a_slice == np.max(a_slice))
+                        dA_prev[set, j*s1:j*s1+k1,
+                                k*s2:k*s2+k2, c] += (mask * dA[set, j, k, c])
+                    else:
+                        ones = np.ones((k1, k2, dA.shape[3]))
+                        A = dA[set, j, k, c] / (k1 * k2)
+                        dA_prev[set, j*s1:j*s1+k1, k*s2:k*s2+k2, c] += ones * A
 
-    return dA_prev
+    return dA_prev[0]
