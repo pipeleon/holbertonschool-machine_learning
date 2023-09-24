@@ -23,7 +23,7 @@ def pool_backward(dA, A_prev, kernel_shape, stride=(1, 1), mode='max'):
                         dA_prev[set, j*s1:j*s1+k1,
                                 k*s2:k*s2+k2, c] += (mask * dA[set, j, k, c])
                     else:
-                        ones = np.ones((k1, k2, dA.shape[3]))
+                        ones = np.ones((k1, k2))
                         A = dA[set, j, k, c] / (k1 * k2)
                         dA_prev[set, j*s1:j*s1+k1, k*s2:k*s2+k2, c] += ones * A
 
