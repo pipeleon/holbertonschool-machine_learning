@@ -27,4 +27,4 @@ def pool_backward(dA, A_prev, kernel_shape, stride=(1, 1), mode='max'):
                         A = dA[set, j, k, c] / (k1 * k2)
                         dA_prev[set, j*s1:j*s1+k1, k*s2:k*s2+k2, c] += ones * A
 
-    return dA_prev[0]
+    return dA_prev
