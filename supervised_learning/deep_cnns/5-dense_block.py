@@ -38,29 +38,4 @@ def dense_block(X, nb_filters, growth_rate, layers):
 
         concat = K.layers.concatenate([concat, conv_2])
 
-
-    """ conv_1 = K.layers.Conv2D(
-        filters=filters[0],
-        kernel_size=1,
-        padding="same",
-        strides=1,
-        kernel_initializer=initializer,
-        activation="linear"
-    )(A_prev)
-
-    shortcut = conv_1 = K.layers.Conv2D(
-        filters=filters[2],
-        kernel_size=1,
-        padding="same",
-        strides=s,
-        kernel_initializer=initializer,
-        activation="linear"
-    )(A_prev)
-
-    short_batch = K.layers.BatchNormalization()(shortcut)
-
-    add = K.layers.Add()([batch_n3, short_batch])
-
-    activation_3 = K.layers.Activation('relu')(add) """
-
     return concat, (nb_filters + layers*growth_rate)
