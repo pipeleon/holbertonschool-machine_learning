@@ -20,7 +20,7 @@ def resnet50():
         strides=(2, 2),
         padding="same",
         kernel_initializer=initializer,
-        activation="relu"
+        activation="linear"
     )(X)
 
     batch_n1 = K.layers.BatchNormalization()(conv_1)
