@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Task 0 Keras"""
-import numpy as np
+import tensorflow as tf
 
 
 class NST():
